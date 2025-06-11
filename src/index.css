@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @reference font-sans text-dark bg-light;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @reference font-bold;
+  }
+}
+
+@layer components {
+  .container {
+    @reference max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .btn {
+    @reference inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md shadow-sm transition-colors duration-200;
+  }
+  
+  .btn-primary {
+    @reference bg-primary text-white hover:bg-primary/90;
+  }
+  
+  .btn-secondary {
+    @reference bg-secondary text-white hover:bg-secondary/90;
+  }
+  
+  .btn-outline {
+    @reference border-gray-300 text-gray-700 bg-white hover:bg-gray-50;
+  }
+}
