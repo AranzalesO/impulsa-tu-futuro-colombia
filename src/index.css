@@ -1,40 +1,91 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@import "tailwindcss";
-
-@layer base {
-  html {
-    scroll-behavior: smooth;
+/* Custom animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
-  
-  body {
-    @reference font-sans text-dark bg-light;
-    font-family: 'Inter', sans-serif;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    @reference font-bold;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@layer components {
-  .container {
-    @reference max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+.animate-fade-in-up {
+  animation: fade-in-up 1s ease-out;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Enhanced hover effects */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom button styles */
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+/* Loading animation for counters */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
   }
-  
-  .btn {
-    @reference inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md shadow-sm transition-colors duration-200;
+  50% {
+    opacity: 0.8;
   }
-  
-  .btn-primary {
-    @reference bg-primary text-white hover:bg-primary/90;
-  }
-  
-  .btn-secondary {
-    @reference bg-secondary text-white hover:bg-secondary/90;
-  }
-  
-  .btn-outline {
-    @reference border-gray-300 text-gray-700 bg-white hover:bg-gray-50;
-  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
 }
